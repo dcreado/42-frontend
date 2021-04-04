@@ -27,7 +27,7 @@ export class CheckoutComponent implements OnInit {
                         .subscribe(order => {
       this.processing = false;
       this.orderConfirm = order;
-      
+      this.cartState.clear();
     });
   
   }

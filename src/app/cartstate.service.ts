@@ -68,4 +68,12 @@ export class CartstateService {
       this.cartSize.next(this.items.map(val => val.qty).reduce((acc, c) => acc + c));
     }
   }
+
+  public clear(){
+    
+    this.items = [];
+    this.cartSize.next(0);
+    
+  }
+  
 }

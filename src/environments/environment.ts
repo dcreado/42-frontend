@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUri: "ttps://mighty-tundra-79980.herokuapp.com",
+  apiUri: "https://mighty-tundra-79980.herokuapp.com",
   auth: {
     "domain": "dev--vae0du0.us.auth0.com",
     "clientId": "OrKeNbV7EgHqmH7DPBWvTbw8nv7T44pT",
@@ -14,13 +14,13 @@ export const environment = {
   httpInterceptor: {
     allowedList: [
     {
-      uri: 'ttps://mighty-tundra-79980.herokuapp.com/api/order',
+      uri: 'https://mighty-tundra-79980.herokuapp.com/api/order',
       tokenOptions: {
         audience: 'http://my-api/',
         scope: 'profile',
       },
     },{
-      uri: 'ttps://mighty-tundra-79980.herokuapp.com/api/profile',
+      uri: 'https://mighty-tundra-79980.herokuapp.com/api/profile',
       tokenOptions: {
         audience: 'http://my-api/',
         scope: 'profile',
@@ -28,4 +28,3 @@ export const environment = {
     },],
   },
 };
-

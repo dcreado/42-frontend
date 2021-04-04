@@ -8,14 +8,35 @@ margin-top: 50px;
 </div>
 
 <div *ngIf="items.length > 0">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Ship to</h5>
-            <p class="card-text">{{profile.address}}</p>
-            <p class="card-text">{{profile.address2}} - {{profile.zip}}</p>
-            <p class="card-text">{{profile.city}} - {{profile.state}} </p>
+    <div class="container">
+        <div class="row">
+          <div class="col-md">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ship to</h5>
+                    <p class="card-text">{{profile.address}}</p>
+                    <p class="card-text">{{profile.address2}} - {{profile.zip}}</p>
+                    <p class="card-text">{{profile.city}} - {{profile.state}} </p>
+                </div>
+              </div>
+          </div>
+          <div class="col-md">
+            <div class="card" *ngIf="auth.user$ | async as user">
+                <div class="card-body">
+                    <h5 class="card-title">Your account</h5>
+                    <p class="card-text">username: {{ user.name }}</p>
+                    <p class="card-text">email {{ user.email }}</p>
+                    <p class="card-text">last login {{user.updated_at}}</p>
+                    
+
+                    
+                </div>
+              </div>
+          </div>
+          
         </div>
       </div>
+    
 <table class="table" >
     <thead>
         <tr>
