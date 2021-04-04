@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CartstateService } from '../cartstate.service';
+import { environment as env } from '../../environments/environment';
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+  processing: boolean = true;
+  orderConfirm: any = null;
+  constructor(private cartState: CartstateService,
+    private router: Router,
+    private http : HttpClient) { 
+
+    }
 
   ngOnInit(): void {
+
+    
+    this.http.post<any>(env.apiUri + "/api/order", 
+                        this.cartState.getItems())
+                        .subscribe(order => {
+      this.processing = false;
+      this.orderConfirm = order;
+      
+    });
+  
   }
 
 }

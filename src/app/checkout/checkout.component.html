@@ -1,1 +1,15 @@
-<p>checkout works!</p>
+<div class="jumbotron" style="background-color: #fff; height: calc(95vh); 
+margin-top: 50px;
+">
+
+<div class="text-center" *ngIf="processing">
+    <p>Processing your order...</p>
+    <div class="spinner-border" role="status">
+
+    </div>
+  </div>
+  <div *ngIf="!processing">
+      {{orderConfirm | json}}
+  </div>
+    
+</div>

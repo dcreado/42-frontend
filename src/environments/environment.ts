@@ -3,14 +3,29 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUri: "ttps://mighty-tundra-79980.herokuapp.com",
+  auth: {
+    "domain": "dev--vae0du0.us.auth0.com",
+    "clientId": "OrKeNbV7EgHqmH7DPBWvTbw8nv7T44pT",
+    "audience": "http://my-api/",
+    redirectUri: window.location.origin,
+  },
+  httpInterceptor: {
+    allowedList: [
+    {
+      uri: 'ttps://mighty-tundra-79980.herokuapp.com/api/order',
+      tokenOptions: {
+        audience: 'http://my-api/',
+        scope: 'profile',
+      },
+    },{
+      uri: 'ttps://mighty-tundra-79980.herokuapp.com/api/profile',
+      tokenOptions: {
+        audience: 'http://my-api/',
+        scope: 'profile',
+      },
+    },],
+  },
 };
 
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.

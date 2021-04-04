@@ -1,1 +1,56 @@
-<p>cart works!</p>
+
+<div class="jumbotron" style="background-color: #fff; height: calc(95vh); 
+margin-top: 50px;
+">
+<div *ngIf="items.length == 0">
+    <h1 class="display-4">Oops... your cart is empty :(</h1>
+    <p>pick one of your pizza from menu</p>
+</div>
+
+<div *ngIf="items.length > 0">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Ship to</h5>
+            <p class="card-text">{{profile.address}}</p>
+            <p class="card-text">{{profile.address2}} - {{profile.zip}}</p>
+            <p class="card-text">{{profile.city}} - {{profile.state}} </p>
+        </div>
+      </div>
+<table class="table" >
+    <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">quantity</th>
+          <th scope="col">Unit Price</th>
+          <th scope="col">Total</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+    <tbody>
+      <tr *ngFor="let c of items">
+        <th scope="row">{{c.name}}</th>
+        <td>
+            <input type="number" id="quantity" name="quantity"
+       min="1" max="100" value={{c.qty}} (change)="onChange(c, $event)"></td>
+        <td>{{c.price}}</td>
+        <td>{{c.qty * c.price}}</td>
+        <td><button (click)="remove(c)" class="btn btn-danger">Remove</button></td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td></td>
+        <td>grand total</td>
+        <td>{{getTotal()}}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td></td>
+        <td></td>
+        <td><a routerLink="/checkout" class="btn btn-primary">Checkout</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

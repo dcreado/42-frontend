@@ -12,6 +12,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 import { AuthModule } from '@auth0/auth0-angular';
+import { ProfileComponent } from './profile/profile.component';
+
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthHttpInterceptor } from '@auth0/auth0-angular';
+import { FormsModule, ReactiveFormsModule
+} from '@angular/forms';
+
+import { environment as env } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -20,18 +29,27 @@ import { AuthModule } from '@auth0/auth0-angular';
     CartComponent,
     CheckoutComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
+    FormsModule, // <-- add this 
+    ReactiveFormsModule, // <-- and this
+
     AuthModule.forRoot({
-      domain: 'dev--vae0du0.us.auth0.com',
-      clientId: 'OrKeNbV7EgHqmH7DPBWvTbw8nv7T44pT'
+      ...env.auth,
+      httpInterceptor: {
+        ...env.httpInterceptor,
+      },
     }),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

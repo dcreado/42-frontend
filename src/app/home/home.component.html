@@ -1,26 +1,13 @@
-<div class="jumbotron" style="background-color: #fff; height: calc(95vh);">
+<div class="jumbotron" style="background-color: #fff; height: calc(95vh); 
+margin-top: 50px;
+">
 
-
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-          <img src="..." class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-      </div>
-    </div>
-  </div>
-
-  <div class="row row-cols-1 row-cols-md-3">
-    <div class="col mb-4" *ngFor="let c of pizzas">
+  <div class="row row-cols-1 row-cols-md-3" >
+    <div class="col mb-4" *ngFor="let c of (pizzas | async)">
     <div class="card h-100 text-center"  >
       <img src="/assets/images/{{ c['image'] }}" class="card-img-top" >
       <div class="card-body">
-        <a href="#" class="btn btn-danger btn-block" >Order now</a>
+        <a class="btn btn-danger btn-block"  (click)="addItem(c)">Order now</a>
         <h5 class="card-title">{{ c['name'] }}</h5>
         <p class="card-text">{{ c['ingredients'] }}</p>
 
@@ -28,7 +15,5 @@
     </div>
   </div>
   </div>
-
-
 
 </div>

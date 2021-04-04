@@ -1,0 +1,117 @@
+
+<div class="jumbotron" style="background-color: #fff; height: calc(95vh);
+margin-top: 50px;
+">
+  <form [formGroup]="profileForm"
+        (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">First Name</label>
+        <input type="text" class="form-control " 
+        [class.is-valid]="given_name.valid && given_name.touched" 
+        [class.is-invalid]="!given_name.valid && given_name.touched" 
+        id="given_name" placeholder="First name" 
+        formControlName="given_name">
+       
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Last Name</label>
+        <input type="text" class="form-control" 
+        [class.is-valid]="family_name.valid && family_name.touched"
+        [class.is-invalid]="!family_name.valid && family_name.touched" 
+        id="family_name" placeholder="Last name"
+        formControlName="family_name">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="inputAddress">Address</label>
+      <input type="text" class="form-control" 
+      [class.is-valid]="address.valid && address.touched"
+      [class.is-invalid]="!address.valid && address.touched"
+      
+      id="inputAddress" placeholder="1234 Main St"
+      formControlName="address">
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Address 2</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"
+      formControlName="address2">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="inputCity"
+        [class.is-valid]="city.valid && city.touched"
+        [class.is-invalid]="!city.valid && city.touched"
+        
+        formControlName="city">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+        <select id="inputState" class="form-control"
+        formControlName="state">
+          <option>Alabama</option>
+  <option>Alaska</option>
+  <option>Arizona</option>
+  <option>Arkansas</option>
+  <option>California</option>
+  <option>Colorado</option>
+  <option>Connecticut</option>
+  <option>Delaware</option>
+  <option>Florida</option>
+  <option>Georgia</option>
+  <option>Hawaii</option>
+  <option>Idaho</option>
+  <option>Illinois</option>
+  <option>Indiana</option>
+  <option>Iowa</option>
+  <option>Kansas</option>
+  <option>Kentucky</option>
+  <option>Louisiana</option>
+  <option>Maine</option>
+  <option>Maryland</option>
+  <option>Massachusetts</option>
+  <option>Michigan</option>
+  <option>Minnesota</option>
+  <option>Mississippi</option>
+  <option>Missouri</option>
+  <option>Montana</option>
+  <option>Nebraska</option>
+  <option>Nevada</option>
+  <option>New Hampshire</option>
+  <option>New Jersey</option>
+  <option>New Mexico</option>
+  <option>New York</option>
+  <option>North Carolina</option>
+  <option>North Dakota</option>
+  <option>Ohio</option>
+  <option>Oklahoma</option>
+  <option>Oregon</option>
+  <option>Pennsylvania</option>
+  <option>Rhode Island</option>
+  <option>South Carolina</option>
+  <option>South Dakota</option>
+  <option>Tennessee</option>
+  <option>Texas</option>
+  <option>Utah</option>
+  <option>Vermont</option>
+  <option>Virginia</option>
+  <option>Washington</option>
+  <option>West Virginia</option>
+  <option>Wisconsin</option>
+  <option>Wyoming</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Zip</label>
+        <input type="text" class="form-control" id="inputZip" 
+        [class.is-valid]="zip.valid && zip.touched"
+        [class.is-invalid]="!zip.valid && zip.touched"
+        
+        formControlName="zip">
+      </div>
+    </div>
+    <button type="submit" class="float-right btn btn-primary">Save</button>
+  </form>
+</div>

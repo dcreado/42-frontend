@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -25,9 +25,13 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "bootstrap": "^4.6.0",
+    "express-jwt": "^6.0.0",
     "jquery": "^3.6.0",
+    "jwks-rsa": "^2.0.2",
+    "ngx-webstorage-service": "^4.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
+    "uuid": "^3.4.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
